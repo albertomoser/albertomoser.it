@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alberto Moser | Coming Soon</title>
   <style>
+    @font-face {
+      font-family: 'TexGyreAdventorBold';
+      src: url('texgyreadventor-bold.otf') format('opentype');
+      font-weight: bold;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -13,7 +19,7 @@
 
     body {
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom right, #0D0D0D, #1A1A1A);
+      background: #000000;
       color: #ffffff;
       display: flex;
       justify-content: center;
@@ -24,10 +30,11 @@
     }
 
     h1 {
+      font-family: 'TexGyreAdventorBold', sans-serif;
       font-size: 3rem;
       margin-bottom: 1rem;
       letter-spacing: 2px;
-      color: #e3e3e3;
+      color: #ffffff;
     }
 
     p {
@@ -36,7 +43,9 @@
       color: #cccccc;
     }
 
-    .email {
+    .btn {
+      display: inline-block;
+      margin: 0.5rem;
       font-weight: bold;
       color: #ffffff;
       text-decoration: none;
@@ -46,9 +55,9 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    .email:hover {
+    .btn:hover {
       background-color: #ffffff;
-      color: #0D0D0D;
+      color: #000000;
     }
 
     footer {
@@ -63,7 +72,8 @@
   <div>
     <h1>Alberto Moser</h1>
     <p>Design. Build. Inspire. Stay Tuned.</p>
-    <a class="email" href="mailto:am@albertomoser.it">Contact Me</a>
+    <a class="btn" href="mailto:am@albertomoser.it">Contact Me</a>
+    <a class="btn" href="https://www.linkedin.com/in/albertomoser" target="_blank">Visit LinkedIn</a>
   </div>
   <footer>
     &copy; 2024 Alberto Moser | Milan, Italy
