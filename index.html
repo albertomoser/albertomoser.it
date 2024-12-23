@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Alberto Moser | Coming Soon</title>
   <style>
     @font-face {
@@ -32,9 +32,51 @@
     h1 {
       font-family: 'TexGyreAdventorBold', sans-serif;
       font-size: 3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       letter-spacing: 2px;
       color: #ffffff;
+      position: relative;
+      display: inline-block;
+      cursor: default;
+      padding: 5px; /* Helps reduce flicker near text boundary */
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #cccccc;
+    }
+
+    /* Pseudo-element for the sweep effect */
+    h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(0, 0, 0, 0.7),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    /* Keyframes for the sweeping highlight */
+    @keyframes sweep {
+      0% {
+        left: -100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    /* Triggered by JS when mouse enters */
+    h1.active::before {
+      animation: sweep 0.3s forwards;
     }
 
     p {
@@ -70,13 +112,25 @@
 </head>
 <body>
   <div>
-    <h1>Alberto Moser</h1>
-    <p>Design. Build. Inspire. Stay Tuned.</p>
+    <h1 id="title">Alberto Moser</h1>
+    <h2>Mechanical Engineer</h2>
+    <p>Welcome to my personal website. Stay Tuned.</p>
     <a class="btn" href="mailto:am@albertomoser.it">Contact Me</a>
     <a class="btn" href="https://www.linkedin.com/in/albertomoser" target="_blank">Visit LinkedIn</a>
   </div>
   <footer>
     &copy; 2024 Alberto Moser | Milan, Italy
   </footer>
+
+  <script>
+    const title = document.getElementById('title');
+
+    // Remove .active, then re-add it on mouse enter to replay
+    title.addEventListener('mouseenter', () => {
+      title.classList.remove('active');
+      void title.offsetWidth; // Trigger a reflow
+      title.classList.add('active');
+    });
+  </script>
 </body>
 </html>
